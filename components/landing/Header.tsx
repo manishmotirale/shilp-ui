@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+
 import { AnimatedThemeToggler } from "../ui/theme-toggle";
 
 function GitHubIcon({ className = "h-4 w-4" }: { className?: string }) {
@@ -79,13 +80,35 @@ function Header() {
               {/* Logo */}
               <Link href="/" className="group flex items-center gap-2.5">
                 <div className="relative flex h-8 w-8 items-center justify-center overflow-hidden rounded-lg">
+                  {/* Light Mode Logo */}
                   <Image
-                    src="/shilp-ui.gif"
+                    src="/shilp-logo-light.gif"
                     alt="Shilp UI"
                     width={32}
                     height={32}
-                    className="h-8 w-8 object-contain"
                     unoptimized
+                    priority
+                    className="
+                      block
+                      h-8 w-8
+                      object-contain
+                      dark:hidden
+                    "
+                  />
+
+                  {/* Dark Mode Logo */}
+                  <Image
+                    src="/shilp-logo-dark.gif"
+                    alt="Shilp UI"
+                    width={32}
+                    height={32}
+                    unoptimized
+                    className="
+                      hidden
+                      h-8 w-8
+                      object-contain
+                      dark:block
+                    "
                   />
                 </div>
 
@@ -161,7 +184,9 @@ function Header() {
                 rel="noreferrer"
                 aria-label="GitHub"
                 className="
-                  hidden rounded-lg p-2
+                  hidden
+                  rounded-lg
+                  p-2
                   text-zinc-500
                   transition-all
                   hover:bg-zinc-100

@@ -28,14 +28,26 @@ function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex items-center gap-2.5">
+              {/* Theme-based Logo */}
               <div className="relative flex h-9 w-9 items-center justify-center overflow-hidden rounded-lg">
+                {/* Light Mode */}
                 <Image
-                  src="/shilp-ui.gif"
+                  src="/shilp-logo-light.gif"
                   alt="Shilp UI"
                   width={36}
                   height={36}
-                  className="h-9 w-9 object-contain"
                   unoptimized
+                  className="block h-9 w-9 object-contain dark:hidden"
+                />
+
+                {/* Dark Mode */}
+                <Image
+                  src="/shilp-logo-dark.gif"
+                  alt="Shilp UI"
+                  width={36}
+                  height={36}
+                  unoptimized
+                  className="hidden h-9 w-9 object-contain dark:block"
                 />
               </div>
 

@@ -4,7 +4,6 @@ import * as React from "react";
 import { ArrowUp, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
-
 interface AIInput05Props {
   value?: string;
   onChange?: (value: string) => void;

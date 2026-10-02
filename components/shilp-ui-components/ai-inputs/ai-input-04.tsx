@@ -14,6 +14,7 @@ import {
 
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
+import { motion } from "framer-motion";
 
 const QUICK_ACTIONS = [
   {

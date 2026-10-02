@@ -4,6 +4,7 @@ import * as React from "react";
 import { ArrowUp, Mic, Sparkles } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
+import { Textarea } from "@/components/ui/textarea";
 
 interface AIInput01Props {
   value?: string;
@@ -89,7 +90,7 @@ export function AIInput01({
           <div className="pointer-events-none absolute left-1/2 top-0 h-px w-1/2 -translate-x-1/2 bg-gradient-to-r from-transparent via-violet-400/40 to-transparent opacity-0 transition-opacity duration-500 group-focus-within:opacity-100" />
 
           {/* Textarea */}
-          <textarea
+          <Textarea
             ref={textareaRef}
             placeholder={placeholder}
             disabled={disabled}

@@ -6,13 +6,13 @@ import {
   ArrowRight, ArrowUpRight, Sparkles, Settings2, Image as ImageIcon,
   Code2, Presentation, FileText, Palette, Video, UserRound, Send,
   Bot, Plus, Search, ShieldCheck, KeyRound, BarChart3, Users, Activity,
-  Filter, Github, Mail, CreditCard, Wallet, ShoppingBag, Truck, Heart,
+  Filter, Mail, CreditCard, Wallet, ShoppingBag, Truck, Heart,
   Star, Trash2, Minus, Check, Package
 } from "lucide-react";
 
 const items = ["Topic", "Audience", "Slide count"];
 
-export default function Block() {
+export default function AICardGeneration04Block() {
   return (
     <section className="mx-auto w-full max-w-5xl rounded-3xl border border-white/[.07] bg-[#09090b] p-5 shadow-[0_20px_70px_rgba(0,0,0,.25)] md:p-8">
       

@@ -4,6 +4,7 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ViewTransitions } from "next-view-transitions";
 import { ThemeProvider } from "@/components/providers/theme-provider";
+import { RootProvider } from "fumadocs-ui/provider/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <ViewTransitions>
       <html
+        suppressHydrationWarning={true}
         lang="en"
         className={cn(
           "h-full",
@@ -33,14 +35,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           "font-sans",
         )}
       >
-        <body className="min-h-full flex flex-col">
+        <body className="flex min-h-screen flex-col antialiased">
           <ThemeProvider
             attribute="class"
             defaultTheme="system"
             enableSystem
             disableTransitionOnChange
           >
-            {children}
+            <RootProvider>{children}</RootProvider>
           </ThemeProvider>
         </body>
       </html>

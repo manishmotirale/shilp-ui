@@ -1,6 +1,4 @@
 import type { Metadata } from "next";
-import { notFound } from "next/navigation";
-
 import {
   DocsBody,
   DocsDescription,
@@ -10,6 +8,7 @@ import {
 
 import { getMDXComponents } from "@/components/mdx";
 import { source } from "@/lib/source";
+import NotFound from "@/app/not-found";
 
 type PageParams = {
   slug?: string[];
@@ -50,22 +49,17 @@ export default async function Page({
   const page = source.getPage(slug ?? []);
 
   if (!page) {
-    notFound();
+    return <NotFound />;
   }
 
   const MDX = page.data.body;
 
   return (
-    <DocsPage
-      toc={page.data.toc}
-      full={page.data.full}
-    >
+    <DocsPage toc={page.data.toc} full={page.data.full}>
       <DocsTitle>{page.data.title}</DocsTitle>
 
       {page.data.description && (
-        <DocsDescription>
-          {page.data.description}
-        </DocsDescription>
+        <DocsDescription>{page.data.description}</DocsDescription>
       )}
 
       <DocsBody>

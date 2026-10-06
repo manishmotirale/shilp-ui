@@ -1,0 +1,16 @@
+{
+  "title": "Components",
+  "pages": [
+    "ai-input",
+    "alert",
+    "button",
+    "card",
+    "faq",
+    "input",
+    "list",
+    "pricing",
+    "profile",
+    "text",
+    "block"
+  ]
+}

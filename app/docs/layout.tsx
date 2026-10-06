@@ -4,16 +4,16 @@ import { DocsLayout } from "fumadocs-ui/layouts/docs";
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
 
-import { baseOptions } from "@/lib/layout.shared";
-
 import { source } from "@/lib/source";
+import { baseOptions } from "../layout.config";
+
 export const metadata: Metadata = {
   title: {
     template: "%s | Shilp UI",
-    default: "Shilp UI — Premium React Components",
+    default: "Shilp UI — Craft, Compose, Create.",
   },
   description:
-    "Shilp UI is a premium collection of modern, reusable React and Next.js components.",
+    "Beautifully crafted React and Next.js components for building modern web interfaces.",
 };
 
 export default function DocsRootLayout({ children }: { children: ReactNode }) {
@@ -21,7 +21,12 @@ export default function DocsRootLayout({ children }: { children: ReactNode }) {
     <DocsLayout
       tree={source.pageTree}
       {...baseOptions}
-      className="bg-[#050506] text-zinc-100"
+      className="
+        bg-white
+        text-zinc-950
+        dark:bg-zinc-950
+        dark:text-zinc-50
+      "
     >
       {children}
     </DocsLayout>

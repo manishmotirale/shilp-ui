@@ -1,0 +1,32 @@
+---
+title: useAutoResizeTextarea
+description: A React hook that auto-resizes a textarea based on its content.
+---
+
+# useAutoResizeTextarea
+
+A client-side hook that dynamically adjusts textarea height as the user types, with configurable minimum and maximum bounds.
+
+## Example
+
+<ComponentShowcase category="useAutoResizeTextarea" />
+
+## Import
+
+```tsx
+import { useAutoResizeTextarea } from "@/hooks/use-auto-resize-textarea";
+```
+
+## API
+
+| Option | Type | Default | Description |
+| ------ | ---- | ------- | ----------- |
+| `minHeight` | `number` | `52` | Minimum height in pixels |
+| `maxHeight` | `number` | `200` | Maximum height in pixels |
+
+## Returns
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `textareaRef` | `RefObject<HTMLTextAreaElement>` | Ref to attach to the textarea |
+| `adjustHeight` | `(reset?: boolean) => void` | Recalculate height; pass `true` to reset |

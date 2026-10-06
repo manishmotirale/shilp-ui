@@ -1,0 +1,12 @@
+{
+  "name": "use-file-input",
+  "type": "registry:hook",
+  "files": [
+    {
+      "type": "registry:hook",
+      "content": "\"use client\";\r\n\r\nimport { useCallback, useRef, useState } from \"react\";\r\n\r\ninterface UseFileInputOptions {\r\n  accept?: string;\r\n  /** Max size in megabytes */\r\n  maxSize?: number;\r\n}\r\n\r\nexport function useFileInput({ accept = \"*\", maxSize = 10 }: UseFileInputOptions = {}) {\r\n  const fileInputRef = useRef<HTMLInputElement>(null);\r\n  const [fileName, setFileName] = useState<string | null>(null);\r\n  const [fileSize, setFileSize] = useState<number>(0);\r\n  const [error, setError] = useState<string | null>(null);\r\n\r\n  const clearFile = useCallback(() => {\r\n    setFileName(null);\r\n    setFileSize(0);\r\n    setError(null);\r\n    if (fileInputRef.current) {\r\n      fileInputRef.current.value = \"\";\r\n    }\r\n  }, []);\r\n\r\n  const validateAndSetFile = useCallback(\r\n    (file: File) => {\r\n      setError(null);\r\n\r\n      if (accept !== \"*\" && accept !== \"image/*\") {\r\n        const types = accept.split(\",\").map((t) => t.trim());\r\n        if (!types.some((t) => file.type === t || file.name.toLowerCase().endsWith(t.replace(\".\", \"\")))) {\r\n          setError(`File type not accepted. Expected: ${accept}`);\r\n          return;\r\n        }\r\n      } else if (accept === \"image/*\" && !file.type.startsWith(\"image/\")) {\r\n        setError(\"Please select an image file.\");\r\n        return;\r\n      }\r\n\r\n      const maxBytes = maxSize * 1024 * 1024;\r\n      if (file.size > maxBytes) {\r\n        setError(`File must be smaller than ${maxSize} MB.`);\r\n        return;\r\n      }\r\n\r\n      setFileName(file.name);\r\n      setFileSize(file.size);\r\n    },\r\n    [accept, maxSize],\r\n  );\r\n\r\n  return {\r\n    fileName,\r\n    fileInputRef,\r\n    clearFile,\r\n    error,\r\n    validateAndSetFile,\r\n    fileSize,\r\n  };\r\n}",
+      "path": "/hooks/use-file-input.ts",
+      "target": "/hooks/use-file-input.ts"
+    }
+  ]
+}
